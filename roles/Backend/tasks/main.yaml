@@ -6,7 +6,7 @@
 
 - name: 'Copy Backend Service Manifest files'
   template:
-    src: 'database-service.j2'
+    src: 'backend-service.j2'
     dest: '/home/{{ backend_app_name }}_service.yaml'
 
 - name: 'Create a Deployment for Backend {{ backend_app_name }}'
