@@ -1,0 +1,20 @@
+---
+- name: 'Copy Frontend deployment Manifest files'
+  template:
+    src: 'frontend-deployment.j2'
+    dest: '/home/{{ frontend_app_name }}_deployment.yaml'
+
+- name: 'Copy frontend Service Manifest files'
+  template:
+    src: 'frontend-service.j2'
+    dest: '/home/{{ frontend_app_name }}_service.yaml'
+
+- name: 'Create a Deployment for Frontend {{ frontend_app_name }}'
+  kubernetes.core.k8s:
+    state: present
+    src: '/home/{{ frontend_app_name }}_deployment.yaml'
+
+- name: 'Create a Service for Frontend {{ frontend_app_namee }}'
+  kubernetes.core.k8s:
+    state: present
+    src: '/home/{{ frontend_app_name }}_service.yaml'

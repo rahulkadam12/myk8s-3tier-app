@@ -1,0 +1,27 @@
+### Frontend app variables
+
+frontend_app_name: "frontend-app"
+frontend_image_name: "your-frontend-image"
+f_port_number: 80
+f_destination_port: 80
+f_replica_count: 3
+
+### Backend app variables
+
+backend_app_name: "backend-app"
+backend_image_name: "your-backend-image"
+b_source_port: 8080
+b_destination_port: 8080
+b_replica_count: 2
+
+### Database app variables
+
+database_app_name: "database-app"
+database_image_name: "your-database-image"
+db_name: "database-name"
+db_port: 5432
+db_replica_count: 1
+
+### LB variables
+
+app_lb_name: "app-lb-name"

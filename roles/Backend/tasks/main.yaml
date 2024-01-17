@@ -1,0 +1,20 @@
+---
+- name: 'Copy Backend deployment Manifest files'
+  template:
+    src: 'backend-deployment.j2'
+    dest: '/home/{{ backend_app_name }}_deployment.yaml'
+
+- name: 'Copy Backend Service Manifest files'
+  template:
+    src: 'database-service.j2'
+    dest: '/home/{{ backend_app_name }}_service.yaml'
+
+- name: 'Create a Deployment for Backend {{ backend_app_name }}'
+  kubernetes.core.k8s:
+    state: present
+    src: '/home/{{ backend_app_name }}_deployment.yaml'
+
+- name: 'Create a Service for Backend {{ backend_app_name }}'
+  kubernetes.core.k8s:
+    state: present
+    src: '/home/{{ backend_app_name }}_service.yaml'

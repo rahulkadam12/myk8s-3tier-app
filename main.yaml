@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  roles:
+      - role: Namespace
+      - role: Frontend
+      - role: Backend
+      - role: Database
+      - role: LoadBalancer  
+  vars:
+    dbname: "{{ dbname }}"
+    dbpassword: "{{ dbpassword }}"
+    app_namespace: "{{ appnamespace }}"

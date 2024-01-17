@@ -1,0 +1,12 @@
+---
+- name: 'Copy LoadBalancer Ingress service Manifest files'
+  template:
+    src: 'ingress.j2'
+    dest: '/home/{{ app_lb_name }}_ingress.yaml'
+
+
+- name: 'Create a Ingress Service for {{ frontend_app_name }}'
+  kubernetes.core.k8s:
+    state: present
+    src: '/home/{{ app_lb_name }}_ingress.yaml'
+
